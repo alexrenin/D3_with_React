@@ -12,3 +12,10 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.line {
+  fill: none;
+  stroke: green;
+  stroke-width: 2px;
+
+}

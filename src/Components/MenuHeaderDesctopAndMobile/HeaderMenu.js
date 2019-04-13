@@ -88,8 +88,8 @@ const MenuList = ({
 }) =>
 	<ul className="menuList">
 		{listItems.map(item =>
-			<MenuItem {...{...
-				item,
+			<MenuItem {...{
+				...item,
 				t,
 			}} />
 		)}

@@ -1,7 +1,9 @@
+/* -- D3 manages the chart (D3-oriented approach) -- */
+
 import React, { Component } from 'react'
-import {scaleLinear} from 'd3-scale'
+import { scaleLinear, line, area, select, extent, curveMonotoneX,
+	axisBottom, axisLeft} from 'd3'
 import './LineChart.css'
-import * as d3 from "d3"
 
 class LineChart extends Component {
 	constructor(props) {
@@ -34,7 +36,7 @@ class LineChart extends Component {
 	}
 
 	createChart() {
-		const svg = d3.select(this.svgId)
+		const svg = select(this.svgId)
 			.append("g")
 			.attr("transform", "translate(" + C.padding + "," + C.padding + ")");
 
@@ -62,19 +64,19 @@ class LineChart extends Component {
 			xyLine,
 			xyArea} = this.state
 
-		xScale.domain(d3.extent(data, d => d.x))
+		xScale.domain(extent(data, d => d.x))
 		yScale.domain([0, 1])
 
 		xyLine.x(d => xScale(d.x))
 			.y(d => yScale(d.y))
-			.curve(d3.curveMonotoneX)
+			.curve(curveMonotoneX)
 
 		xyArea.x(d => xScale(d.x))
 			.y0(yScale(0))
 			.y1(d => yScale(d.y))
-			.curve(d3.curveMonotoneX)
+			.curve(curveMonotoneX)
 
-		const svg = d3.select(this.svgId)
+		const svg = select(this.svgId)
 
 		const line = svg.select('.line')
 		line.datum(data)
@@ -88,8 +90,8 @@ class LineChart extends Component {
 			.duration(750)
 			.attr('d', xyArea)
 
-		const axisX = d3.axisBottom(xScale),
-			axisY = d3.axisLeft(yScale)
+		const axisX = axisBottom(xScale),
+			axisY = axisLeft(yScale)
 
 		svg.select('.axisY')
 			.transition()
@@ -153,9 +155,9 @@ function generateChart({
 	const yScale = scaleLinear()
 		.range([height - C.padding*2, 0])
 
-	const xyLine = d3.line()
+	const xyLine = line()
 
-	const xyArea = d3.area()
+	const xyArea = area()
 
 	return {
 		xScale,

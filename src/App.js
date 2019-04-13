@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import LineChart from './Components/LineChart'
+import LineChart from './Components/LineChart/LineChart'
 import './App.css'
 
 class App extends Component {

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import {scaleLinear} from 'd3-scale'
+import './LineChart.css'
 import * as d3 from "d3"
 
 class LineChart extends Component {

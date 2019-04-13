@@ -1,0 +1,138 @@
+/*------------ HeaderMenu menu style ------------*/
+.headerMenu {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    font-family: sans-serif;
+    font-size: 16px;
+    color: #1e272e;
+
+    position: fixed;
+    top: 0;
+    height: 4em;
+    width: 100%;
+
+    background-color: #ffdd59;
+    border-bottom: 2px solid #485460;
+    z-index: 99;
+}
+.headerMenu ul {
+    margin-block-end: 0;
+    padding-inline-start: 0;
+    margin-block-start: 0;
+}
+.headerMenu a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 100%;
+
+    text-decoration: none;
+    color: #1e272e;
+}
+/*------------ list menu style ------------*/
+.menuList {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-left: 8vw;
+}
+.menuItem {
+    display: block;
+    margin: 0.3em 0.3em;
+    height: 3em;
+    width: 7em;
+    background: #ffc048;
+    transform: skewX(170deg);
+    cursor: pointer;
+ }
+.menuItem:hover {
+    transform: skewX(170deg) scale(1.1);
+    border: 1px solid #1e272e;
+}
+
+/*----- PullDowmMenu -----*/
+.pullDownMenu {
+    margin-right: 2vw;
+}
+
+.pullDownMenu .pullDownMenuButton {
+
+}
+.pullDownMenu .pullDownMenuList {
+    display: none;
+
+    position: fixed;
+    top: 4.5em;
+    right: 0.5em;
+    background: #ffdd59;
+    border-bottom: 2px solid #1e272e;
+}
+/* menu is expand*/
+.pullDownMenu .menuButton input:checked ~ .pullDownMenuList {
+    display: block;
+}
+
+/*----- PullDowmMenu Button-----*/
+.pullDownMenu .menuButton {
+    display: block;
+
+    width: 2.375em;
+    height: 2.375em;
+}
+.pullDownMenu  .menuButton .menuInput {
+    display: none;
+}
+.pullDownMenu  .menuButton .menuLabel {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 1px solid #485460;
+    color:  #485460;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+
+    background: transparent;
+    cursor: pointer;
+}
+.pullDownMenu  .menuButton .menuLabel:hover {
+    border: 1.5px solid #1e272e;
+    font-weight: bolder;
+}
+/* menu is expand*/
+.pullDownMenu .menuButton input:checked + .menuLabel {
+    border: 1px solid #1e272e;
+    color: #1e272e;
+}
+
+/* menu is open*/
+.open .menuList {
+    display: block;
+    position: absolute;
+    top: 15%;
+    left: 25%;
+    height: 40%;
+}
+
+.menu.open {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+}
+
+/*TODO menu on mobile problem!!!!*/
+@media screen and (max-width: 600px) {
+    .headerMenu {
+        font-size: 3.2vw;
+    }
+    .menuItem {
+        margin: 0.3em 0.2em;
+        width: 6em;
+    }
+}

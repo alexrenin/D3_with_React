@@ -15,7 +15,14 @@ code {
 
 .line {
   fill: none;
-  stroke: green;
-  stroke-width: 2px;
+  stroke: #006064;
+  stroke-width: 3px;
+}
 
+.area {
+  fill: #5DC8CD;
+}
+
+.dot {
+  fill: #006064;
 }

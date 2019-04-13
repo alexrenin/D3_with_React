@@ -1,18 +1,38 @@
-import React, { Component } from 'react'
-import LineChart from './Components/LineChart/LineChart'
-import './App.css'
+import React, {Component} from "react"
+import LineChart from "./Components/LineChart/LineChart"
+import "./App.css"
+import HeaderMenu from "./Components/MenuHeaderDesctopAndMobile/HeaderMenu"
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-          <LineChart
-              height={300}
-              width={600}
-          />
-      </div>
-    )
-  }
+
+	render () {
+		const {contentList} = storage.headerMenu
+		
+		return (
+			<div className="App">
+				<HeaderMenu {...{
+					contentList,
+				}} />
+				<div className="contentContainer">
+					<LineChart
+						height={300}
+						width={600}
+					/>
+				</div>
+			</div>
+		)
+	}
 }
 
-export default App;
+const storage = {
+	headerMenu: {
+		contentList: [
+			{
+				title: 'Line & area chart',
+				href: 'linechart00',
+			}
+		]
+	}
+}
+
+export default App

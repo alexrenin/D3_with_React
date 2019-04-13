@@ -123,12 +123,15 @@ class LineChart extends Component {
 
 	render() {
 		return (
-			<div>
-				<svg
-					width={this.props.width}
-					height={this.props.height}
-					ref={id => this.svgId = id}
-				/>
+			<div className='chartContainer'>
+				<div className='svg-container'>
+					<svg
+						className='svg-content-responsive'
+						preserveAspectRatio='xMinYMin meet'
+						viewBox={`0 0 ${this.props.width} ${this.props.height}`}
+						ref={id => this.svgId = id}
+					/>
+				</div>
 				<div>
 					<button onClick={this.handleClick}>
 						Update
@@ -140,8 +143,8 @@ class LineChart extends Component {
 }
 
 function generateChart({
-	width = 500,
-	height = 200,
+	width = 1024,
+	height = 720,
 }) {
 	const xScale = scaleLinear()
 		.range([0, width - C.padding*2])

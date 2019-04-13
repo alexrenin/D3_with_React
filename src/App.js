@@ -7,8 +7,8 @@ class App extends Component {
     return (
       <div className="App">
           <LineChart
-              height={200}
-              width={400}
+              height={300}
+              width={600}
           />
       </div>
     )
